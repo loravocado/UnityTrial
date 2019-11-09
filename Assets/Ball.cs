@@ -5,15 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
+  public UIManager UIManager;
+
   public Rigidbody2D rb;
   public Rigidbody2D hook;
-  public float releaseTime = 0.15f;
-  public float maxDragDistance = 2f;
-  private bool isPressed = false;
   public GameObject nextBall;
 
+  public float releaseTime = 0.15f;
+  public float maxDragDistance = 2f;
 
+  private bool spaceHeld = false;
+  private float angle = 0;
 
+  //private Vector3
+
+  private bool isPressed = false;
   void Update()
   {
     if (isPressed)
@@ -39,24 +45,36 @@ public class Ball : MonoBehaviour
     StartCoroutine(Release());
   }
 
+  /*void Update() {
+
+    if (Input.GetKey("space")) {
+      angle = angle + 0.2f;
+    }
+
+    if (Input.GetKeyUp(KeyCode.Space)) {
+      print(angle);
+    }
+
+  }*/
+
+
   IEnumerator Release ()
   {
+    UIManager.BallsUsed++;
+
     yield return new WaitForSeconds(releaseTime);
     GetComponent<SpringJoint2D>().enabled = false;
     this.enabled = false;
 
     yield return new WaitForSeconds(2f);
-    if (nextBall != null)
-    {
+    if (nextBall != null && UIManager.EnemiesAlive != 0) {
       nextBall.SetActive(true);
-    }
-    else
-    {
+    } else {
       yield return new WaitForSeconds(3f);
-      enemy.EnemiesAlive = 0;
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+      if (UIManager.EnemiesAlive != 0) {
+        UIManager.levelFail();
+      }
     }
-
 
   }
 

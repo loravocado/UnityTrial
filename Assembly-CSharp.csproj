@@ -56,21 +56,8 @@
      <Compile Include="Assets\Ball.cs" />
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\enemy.cs" />
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/lora_/UnityTrial/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/lora_/UnityTrial/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/lora_/UnityTrial/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/lora_/UnityTrial/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/lora_/UnityTrial/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\UIManager.cs" />
+     <None Include="Assets\Fonts\LICENSE.txt" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>
