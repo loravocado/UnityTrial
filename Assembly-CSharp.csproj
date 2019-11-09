@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Ball.cs" />
      <Compile Include="Assets\enemy.cs" />
+     <Compile Include="Assets\UIManager.cs" />
      <None Include="Assets\Fonts\LICENSE.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/benja/Documents/Unity/UnityTrial/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
