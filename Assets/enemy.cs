@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class enemy : MonoBehaviour
 {
+  public UIManager UIManager;
+
   public GameObject deathEffect;
-  public static int EnemiesAlive = 0;
+  public Text scoreText;
+
   public float health = 4f;
+  public int pointValue = 100;
+  public bool alive = true;
 
   void Start ()
   {
-    EnemiesAlive++;
+    UIManager.EnemiesAlive++;
   }
 
   void OnCollisionEnter2D (Collision2D colInfo)
@@ -24,13 +30,23 @@ public class enemy : MonoBehaviour
 
   void Die()
   {
-    Instantiate(deathEffect, transform.position, Quaternion.identity);
+    if (alive == true) {
 
-    EnemiesAlive --;
-    if (EnemiesAlive <= 0)
-      Debug.Log("Level Won!");
+      alive = false;
 
-    Destroy(gameObject);
+      Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+      UIManager.EnemiesAlive --;
+      if (UIManager.EnemiesAlive <= 0)
+        UIManager.levelComplete();
+
+      Destroy(gameObject);
+
+      UIManager.score = UIManager.score + pointValue;
+      scoreText.text = "Score: " + (UIManager.score).ToString("");
+      
+    }
+
   }
 
 }
