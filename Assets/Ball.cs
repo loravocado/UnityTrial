@@ -9,11 +9,17 @@ public class Ball : MonoBehaviour
 
   public Rigidbody2D rb;
   public Rigidbody2D hook;
-  public float releaseTime = 0.15f;
-  public float maxDragDistance = 2f;
-  private bool isPressed = false;
   public GameObject nextBall;
 
+  public float releaseTime = 0.15f;
+  public float maxDragDistance = 2f;
+
+  private bool spaceHeld = false;
+  private float angle = 0;
+
+  //private Vector3 
+  
+  private bool isPressed = false;
   void Update()
   {
     if (isPressed)
@@ -37,7 +43,20 @@ public class Ball : MonoBehaviour
     rb.isKinematic = false;
     //release function
     StartCoroutine(Release());
-  }
+  } 
+
+  /*void Update() {
+
+    if (Input.GetKey("space")) {
+      angle = angle + 0.2f;
+    }
+
+    if (Input.GetKeyUp(KeyCode.Space)) {
+      print(angle);
+    }
+
+  }*/
+
 
   IEnumerator Release ()
   {
