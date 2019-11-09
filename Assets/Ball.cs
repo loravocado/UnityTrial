@@ -52,6 +52,7 @@ public class Ball : MonoBehaviour
     }
     else
     {
+      yield return new WaitForSeconds(3f);
       enemy.EnemiesAlive = 0;
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
